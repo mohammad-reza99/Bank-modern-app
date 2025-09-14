@@ -20,15 +20,15 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px]">
+          <h1 className="flex-1 font-poppins font-semibold sm:text-[72px] text-[52px] text-white sm:leading-[100px]">
             The Next <br />
             <span className="text-gradient">Generation</span> <br />
           </h1>
-          <div className="ss:flex md:mr-4 mr-0">
+          <div className="hidden sm:flex md:mr-4 mr-0">
             <GetStarted />
           </div>
         </div>
-        <h1 className=" font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100px] w-full">
+        <h1 className=" font-poppins font-semibold sm:text-[68px] text-[52px] text-white sm:leading-[100px] w-full">
           payment Method.
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5 text-gray-600`}>
@@ -37,13 +37,20 @@ const Hero = () => {
           <br /> We examine annual percentage rates, annual fees.
         </p>
       </div>
-      <div>
+      <div
+        className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
+      >
         <img
           src={robot}
           alt="billing"
           className="w-[100%] h-[100%] relative z-[5]"
         />
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
+        <div className="absolute z-[1] w-[80%] h-[80%] rounded-full bottom-40 white__gradient" />
+        <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
+      </div>
+      <div className={`block md:hidden ${styles.flexCenter}`}>
+        <GetStarted />
       </div>
     </section>
   );
