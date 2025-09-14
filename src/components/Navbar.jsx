@@ -14,12 +14,15 @@ const Navbar = () => {
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+            className={`font-poppins font-normal cursor-pointer text-[16px]
+              ${active === nav.title ? "text-white" : "text-gray-400"}
+              hover:text-white
+              ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a href={`#${nav.id}`} className="block">
+              {nav.title}
+            </a>
           </li>
         ))}
       </ul>
@@ -41,12 +44,18 @@ const Navbar = () => {
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={() => setActive(nav.title)}
+                className={`font-poppins font-medium cursor-pointer text-[16px]
+                  ${active === nav.title ? "text-white" : "text-gray-400"}
+                  hover:text-white
+                  ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                onClick={() => {
+                  setActive(nav.title);
+                  setToggle(false);
+                }}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a href={`#${nav.id}`} className="block">
+                  {nav.title}
+                </a>
               </li>
             ))}
           </ul>
