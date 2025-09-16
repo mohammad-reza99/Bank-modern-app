@@ -1,44 +1,26 @@
-import { useState } from "react";
-import styles from "./style";
-import {
-  Billing,
-  Navbar,
-  Business,
-  CardDeal,
-  Testimonials,
-  Clients,
-  CTA,
-  Footer,
-  Hero,
-  Stats,
-} from "./components";
-const App = () => (
-  <div className="bg-gray-900 w-full overflow-hidden">
-    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}>
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navbar, Footer, Container } from "./components";
+import { Home, Contact } from "./pages";
+const App = () => {
+  const a = 2,
+    b = 3;
+  const x = a + b;
+
+  return (
+    <div className="bg-gray-900 w-full overflow-hidden">
+      <BrowserRouter>
         <Navbar />
-      </div>
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
 
-    <div className={`bg-gray-900 ${styles.flexStart}`}>
-      <div className={`${styles.boxWidth}`}>
-        <Hero />
-      </div>
+        <Container>
+          <Footer />
+        </Container>
+      </BrowserRouter>
     </div>
-
-    <div className={`bg-gray-900 ${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}>
-        <Stats />
-        <Business />
-        <Billing />
-        <CardDeal />
-        <Testimonials />
-        <Clients />
-        <CTA />
-        <Footer />
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export default App;
